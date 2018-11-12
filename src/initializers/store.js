@@ -34,11 +34,22 @@ function albumsReducer(state = [], action){
     }
 }
 
-function albumReducer(state = [], action){
+function albumReducer(state = null, action){
     switch (action.type) {
         case 'SET_ALBUM':
             return action.album
         case 'CLEAR_ALBUM':
+            return null
+        default:
+            return state
+    }
+}
+
+function photoReducer(state = [], action){
+    switch (action.type) {
+        case 'SET_PHOTO':
+            return action.photo
+        case 'CLEAR_PHOTO':
             return []
         default:
             return state
@@ -50,7 +61,8 @@ let rootReducer = combineReducers({
     token: tokenReducer,
     user: userReducer,
     albums: albumsReducer,
-    album: albumReducer
+    album: albumReducer,
+    photos: photoReducer
 })
 
 /**Potenciador localstorage

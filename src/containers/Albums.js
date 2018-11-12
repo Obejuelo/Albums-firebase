@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {setAlbums, clearAlbums} from '../initializers/actions';
+import {setAlbums, clearAlbums, setAlbum} from '../initializers/actions';
 import Axios from 'axios';
 
 // Components
@@ -37,19 +37,21 @@ class Albums extends Component {
 
     render() { 
         return (
-            <Albumelements albums={this.props.albums}/>
+            <Albumelements albums={this.props.albums} album={this.props.setAlbum}/>
         );
     }
 }
 
 const mapeStateToProps = (state) => ({
     albums: state.albums,
-    token: state.token
+    token: state.token,
+    album: state.album
 })
 
 const mapeDispatchToProps = {
     setAlbums,
-    clearAlbums
+    clearAlbums,
+    setAlbum
 }
  
 export default connect(mapeStateToProps, mapeDispatchToProps)(Albums);

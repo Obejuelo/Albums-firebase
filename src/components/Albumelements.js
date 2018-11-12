@@ -9,7 +9,7 @@ const AlbumElements = (props) => {
     return(
         <Grid container spacing={16} justify="center" className={props.classes.main}>
             {props.albums.map((album, index) => {
-                return <AlbumCard key={index} album={album} setAlbum={props.setAlbum}/>
+                return <AlbumCard key={index} album={album} setAlbum={props.album}/>
             })}
         </Grid>
     )

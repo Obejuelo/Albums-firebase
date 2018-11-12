@@ -9,7 +9,8 @@ const AlbumCard = (props) => {
 
 
     const showPhotos = () => {
-        console.log('click');
+        // console.log('click');
+        props.setAlbum(props.album)
     }
 
     return (
