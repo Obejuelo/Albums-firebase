@@ -10,29 +10,6 @@ import Ahutelement from '../components/AhutElement';
 
 class Login extends Component {
 
-    state = {
-        userLoggedIn: false,
-        imgUrl: ''
-    }
-
-    componentDidMount(){
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                this.setState({
-                    userLoggedIn: true,
-                    imgUrl: user.providerData[0].photoURL
-                });
-            } else {
-                this.setState({
-                    userLoggedIn: false,
-                    imgUrl: ''
-                });
-            }
-        })
-
-        
-    }
-
     login = () => {
         let provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('https://www.googleapis.com/auth/photoslibrary.readonly');
@@ -55,15 +32,15 @@ class Login extends Component {
             <Ahutelement
                 login={this.login}
                 logout={this.logout}
-                userLogged={this.state.userLoggedIn}
-                imgUrl={this.state.imgUrl}/>
+                user={this.props.user}/>
         )     
     }
 }
 
 const mapeStateToProps = (state) => {
     return {
-        token: state.token
+        token: state.token,
+        user: state.user
     }
 }
 

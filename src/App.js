@@ -3,6 +3,8 @@ import './App.css';
 
 // Components
 import Appnav from './components/Appnav';
+import Albums from './containers/Albums';
+import Album from './containers/Album';
 
 class App extends Component {
   
@@ -10,6 +12,8 @@ class App extends Component {
     return (
       <div className="App">
         <Appnav/>
+        <Album/>
+        <Albums/>
       </div>
     );
   }

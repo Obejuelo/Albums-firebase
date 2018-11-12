@@ -19,11 +19,10 @@ const Styles = ({
 });
 
 const AhutElement = (props) => {
-
     const renderButton = () => {
-        if(props.userLogged) {
+        if(props.user) {
             return(
-                [<Avatar src={props.imgUrl} key={2}/>,(<IconButton onClick={props.logout} className={props.classes.color} key={1}><ExitToApp/></IconButton>)]
+                [<Avatar src={props.user.photoURL} key={2}/>,(<IconButton onClick={props.logout} className={props.classes.color} key={1}><ExitToApp/></IconButton>)]
             )
         }
         return(
