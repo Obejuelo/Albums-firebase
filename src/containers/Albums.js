@@ -31,8 +31,12 @@ class Albums extends Component {
                 'Authorization': `Bearer ${this.props.token}`
             }
         })
-        .then(console.log())
-        .catch(console.log())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     render() { 
