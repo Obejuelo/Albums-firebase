@@ -5,8 +5,21 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
 
-const AlbumCard = (props) => {
+import posed from 'react-pose'; //ANIMATIONS
 
+// Configuración de animaciones con POSE
+const Box = posed.div({
+    open: {
+        opacity: 1,
+        height: 'auto'
+    },
+    closed: {
+        opacity: 0,
+        height: 0
+    }
+})
+
+const AlbumCard = (props) => {
 
     const showPhotos = () => {
         // console.log('click');
@@ -14,6 +27,7 @@ const AlbumCard = (props) => {
     }
 
     return (
+        <Box pose={'open'}>
         <Card className={props.classes.cardWidth} onClick={showPhotos}>
             <CardMedia className={props.classes.media} image={props.album.coverPhotoBaseUrl}/>
             <CardContent>
@@ -25,6 +39,7 @@ const AlbumCard = (props) => {
                 </Typography>
             </CardContent>
         </Card>
+        </Box>
     )
 }
 
