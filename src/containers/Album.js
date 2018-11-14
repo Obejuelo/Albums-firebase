@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Axios from 'axios';
 
 // Redux
-import {setPhoto, clearPhoto} from '../initializers/actions';
+import {setPhoto, clearAlbum, clearPhoto} from '../initializers/actions';
 
 // Components
 import PhotosList from '../components/PhotosList';
@@ -41,7 +41,11 @@ class Album extends Component {
 
     render() {
         return (
-            <PhotosList album={this.props.album} photos={this.props.photos}/>
+            <PhotosList 
+                album={this.props.album} 
+                photos={this.props.photos}
+                clearAlbum={this.props.clearAlbum}
+                clearPhoto={this.props.clearPhoto}/>
         );
     }
 }
@@ -54,6 +58,7 @@ const mapeStateToProps = (state) => ({
 
 const mapeDispatchToprops = {
     setPhoto,
+    clearAlbum,
     clearPhoto
 }
 

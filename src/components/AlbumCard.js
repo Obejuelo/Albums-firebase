@@ -5,29 +5,27 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
 
-import posed from 'react-pose'; //ANIMATIONS
-
-// Configuración de animaciones con POSE
-const Box = posed.div({
-    open: {
-        opacity: 1,
-        height: 'auto'
-    },
-    closed: {
-        opacity: 0,
-        height: 0
-    }
-})
-
 const AlbumCard = (props) => {
+    
+    /**React hooks
+     * importamos useState de react
+     * este contiene un arreglo con dos valores
+     * el primero es el nombre de la variable
+     * el segundo es una función con el que podemos cambiar el valor
+     * lo igualamos a setState con su valor por defecto
+     */
+    // const [showAlbums, setShowAlbums] = useState(false)
+
+    // Usamos la función para cambiar variable a true
+    // setTimeout(() => {
+    //     setShowAlbums(true)
+    // }, 3000);
 
     const showPhotos = () => {
-        // console.log('click');
         props.setAlbum(props.album)
     }
 
     return (
-        <Box pose={'open'}>
         <Card className={props.classes.cardWidth} onClick={showPhotos}>
             <CardMedia className={props.classes.media} image={props.album.coverPhotoBaseUrl}/>
             <CardContent>
@@ -39,7 +37,6 @@ const AlbumCard = (props) => {
                 </Typography>
             </CardContent>
         </Card>
-        </Box>
     )
 }
 
